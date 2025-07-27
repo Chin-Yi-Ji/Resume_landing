@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>紀欽益 Allen Chi - AI 產品經理</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #e5e7eb;
+            background-color: #0f172a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #60a5fa;
+            border: 2px solid #60a5fa;
+        }
+
+        .btn-secondary:hover {
+            background: #60a5fa;
+            color: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #e5e7eb;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #60a5fa;
+            transform: scale(1.05);
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero > .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: #60a5fa;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            color: #94a3b8;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #60a5fa;
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-features {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid #475569;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateX(5px);
+        }
+
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #e5e7eb;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            color: #94a3b8;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .feature-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon.blue { 
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+        .feature-icon.purple { 
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+        .feature-icon.green { 
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .feature-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-emoji {
+            font-size: 1.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-card {
+            background: #1e293b;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border: 1px solid #475569;
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+            border-color: #60a5fa;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+
+        .skill-title-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            transition: all 0.4s ease;
+        }
+
+        .skill-content-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: all 0.4s ease;
+            transform: translateY(20px);
+        }
+
+        .skill-card:hover .skill-title-overlay {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .skill-card:hover .skill-content-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.4s ease;
+            filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.3));
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0 8px 16px rgba(59, 130, 246, 0.5));
+        }
+
+        .skill-title-overlay h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            text-align: center;
+            color: #e5e7eb;
+            position: relative;
+        }
+
+        .skill-title-overlay h3::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            border-radius: 2px;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        .skill-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding: 0.75rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 0.75rem;
+            border-left: 3px solid #60a5fa;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .skill-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+            background: rgba(59, 130, 246, 0.15);
+            border-left-width: 4px;
+        }
+
+        .skill-list li::before {
+            content: '';
+            width: 0.5rem;
+            height: 0.5rem;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            border-radius: 50%;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+        }
+
+        .skill-list li span {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #e5e7eb;
+            font-weight: 500;
+        }
+
+        .skill-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .experience-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .experience-content {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 1rem;
+            flex: 1;
+            border: 1px solid #475569;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #e5e7eb;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+        }
+
+        .experience-achievements {
+            list-style: none;
+        }
+
+        .experience-achievements li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-achievements li::before {
+            content: '';
+            width: 0.5rem;
+            height: 0.5rem;
+            background: #60a5fa;
+            border-radius: 50%;
+            margin-top: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .award-card {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid #475569;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+            border-color: #60a5fa;
+        }
+
+        .award-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .award-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #e5e7eb;
+        }
+
+        .award-description {
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-year {
+            color: #60a5fa;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .contact-icon.email { background: #ef4444; }
+        .contact-icon.location { background: #10b981; }
+        .contact-icon.phone { background: #3b82f6; }
+
+        .contact-details h4 {
+            font-size: 0.875rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .contact-details a,
+        .contact-details p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            color: #60a5fa;
+        }
+
+        .social-links-contact {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link-contact {
+            color: #666;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link-contact:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .contact-opportunities {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid #475569;
+        }
+
+        .opportunity-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .opportunity-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .opportunity-list li::before {
+            content: '';
+            width: 0.5rem;
+            height: 0.5rem;
+            background: #667eea;
+            border-radius: 50%;
+            margin-top: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: #e5e7eb;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            margin-top: 3rem;
+            border: 1px solid #475569;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .highlight-box h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: #f8fafc;
+        }
+
+        .highlight-box p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar-nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .skill-card {
+                height: 350px;
+            }
+
+            .skill-title-overlay,
+            .skill-content-overlay {
+                padding: 1.5rem;
+            }
+
+            .skill-icon {
+                font-size: 3rem;
+            }
+
+            .skill-title-overlay h3 {
+                font-size: 1.5rem;
+            }
+
+            .skill-list li {
+                padding: 0.75rem 0.875rem;
+                margin-bottom: 1rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand" onclick="scrollToSection('hero')">紀欽益 Allen Chi</div>
+                <div class="navbar-nav">
+                    <a href="#about" class="nav-link">關於我</a>
+                    <a href="#skills" class="nav-link">專業能力</a>
+                    <a href="#experience" class="nav-link">精選經歷</a>
+                    <a href="#awards" class="nav-link">獎項認證</a>
+                    <a href="#contact" class="nav-link">聯絡方式</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="fade-in">
+                <h1>紀欽益 Allen Chi</h1>
+                <h2>AI 驅動產品創新者</h2>
+                <p>從 AI 工程到產品管理，專注將技術轉化為市場價值與使用者影響力</p>
+            </div>
+            
+            <div class="hero-buttons fade-in">
+                <a href="#contact" class="btn btn-primary">聯絡我</a>
+                <a href="#about" class="btn btn-secondary">了解更多</a>
+            </div>
+            
+            <div class="social-links fade-in">
+                <a href="mailto:allen82218@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-slate-900">
+        <div class="container">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">關於我</h2>
+                <p class="section-subtitle">跨域人才的獨特視角</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text slide-in-left">
+                    <p>我是紀欽益，一位心理學背景出身、橫跨 AI 技術與產品創業的跨域人才。過去曾任 AI 工程師，負責醫療影像與 NLP 模組開發，並帶領產品從 0 到 TFDA 認證上線。</p>
+                    <p>我相信好的 AI 產品應該結合技術深度與使用者洞察，我能在產品開發、商業策略與技術溝通之間，成為高效的橋梁。</p>
+                </div>
+
+                <div class="about-features slide-in-right">
+                    <div class="feature-item">
+                        <div class="feature-icon blue">
+                            <span class="feature-emoji">🎯</span>
+                        </div>
+                        <div>
+                            <h3>產品思維</h3>
+                            <p>從使用者需求出發，打造有價值的解決方案</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon purple">
+                            <span class="feature-emoji">⚡</span>
+                        </div>
+                        <div>
+                            <h3>技術深度</h3>
+                            <p>AI 技術實作經驗，理解技術可行性與限制</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon green">
+                            <span class="feature-emoji">🚀</span>
+                        </div>
+                        <div>
+                            <h3>創業精神</h3>
+                            <p>從 0 到 1 的產品開發與商業化經驗</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-slate-800">
+        <div class="container">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">專業能力</h2>
+                <p class="section-subtitle">跨領域技能組合，打造全方位產品思維</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card fade-in">
+                    <div class="skill-image">
+                        <div class="skill-title-overlay">
+                            <div class="skill-icon">⚡</div>
+                            <h3>技術能力</h3>
+                        </div>
+                        <div class="skill-content-overlay">
+                            <ul class="skill-list">
+                                <li><span>Python、TensorFlow、NLP、Computer Vision</span></li>
+                                <li><span>醫療 AI 模組開發與 TFDA、QMS 認證經驗</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-image">
+                        <div class="skill-title-overlay">
+                            <div class="skill-icon">🤝</div>
+                            <h3>管理與跨部門合作</h3>
+                        </div>
+                        <div class="skill-content-overlay">
+                            <ul class="skill-list">
+                                <li><span>AI 產品管理、Jira 專案管理、跨部門溝通（研發、臨床、行銷）</span></li>
+                                <li><span>產品從 0 到 1 的設計與推進經驗</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card fade-in">
+                    <div class="skill-image">
+                        <div class="skill-title-overlay">
+                            <div class="skill-icon">📈</div>
+                            <h3>商業與市場</h3>
+                        </div>
+                        <div class="skill-content-overlay">
+                            <ul class="skill-list">
+                                <li><span>市場調查與產品定位</span></li>
+                                <li><span>成功募資與品牌行銷（B2B、KOL 合作）</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box fade-in">
+                <h3>核心優勢</h3>
+                <p>結合技術深度與商業洞察，能夠在 AI 產品開發過程中，有效平衡技術可行性、使用者需求與商業價值，成為技術團隊與業務團隊之間的關鍵橋梁。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section bg-slate-900">
+        <div class="container">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">工作經歷</h2>
+                <p class="section-subtitle">從技術實作到產品創業的多元經驗</p>
+            </div>
+
+            <div class="space-y-12">
+                <div class="experience-item fade-in">
+                    <div class="experience-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">🧠</div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">醫療 AI 工程師</h3>
+                        <p class="experience-company">長庚醫療科技</p>
+                        <ul class="experience-achievements">
+                            <li>領導 2 項 AI 醫療軟體產品，取得 QMS 認證並送件 TFDA</li>
+                            <li>NLP 工具每日每人省 1 小時工作時間</li>
+                            <li>專案入選 SPARK Taiwan，獲資助 50,000 美元</li>
+                            <li>國家新創獎 AI 類三項大獎（第18屆）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item fade-in">
+                    <div class="experience-icon" style="background: linear-gradient(135deg, #10b981, #059669);">🌿</div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">創辦人</h3>
+                        <p class="experience-company">InMountain 保健食品</p>
+                        <ul class="experience-achievements">
+                            <li>開發登山能量果凍產品，成功募資 7,000 美元</li>
+                            <li>進駐全台登山店通路，與 T1 職籃合作</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item fade-in">
+                    <div class="experience-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">🌐</div>
+                    <div class="experience-content">
+                        <h3 class="experience-title">工程師</h3>
+                        <p class="experience-company">Moxa</p>
+                        <ul class="experience-achievements">
+                            <li>支援超過 200+ 歐洲客戶解決網路技術問題</li>
+                            <li>建立跨部門問題解決流程並進行內部訓練</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box fade-in" style="background: linear-gradient(135deg, #374151, #1f2937);">
+                <h3>經驗總結</h3>
+                <p>從醫療 AI 技術開發到消費品創業，我累積了完整的產品生命週期經驗。無論是技術導向的醫療軟體，還是市場導向的消費產品，我都能夠運用系統性思維，將複雜的技術轉化為使用者價值，並建立可持續的商業模式。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="section bg-slate-800">
+        <div class="container">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">獎項與認證</h2>
+                <p class="section-subtitle">專業能力與成就的肯定</p>
+            </div>
+
+            <div class="awards-grid">
+                <div class="award-card fade-in">
+                    <div class="award-icon">🏆</div>
+                    <h3 class="award-title">國家新創獎</h3>
+                    <p class="award-description">第18、21屆 AI 類</p>
+                    <span class="award-year">2023-2024</span>
+                </div>
+
+                <div class="award-card fade-in">
+                    <div class="award-icon">📜</div>
+                    <h3 class="award-title">SPARK Taiwan</h3>
+                    <p class="award-description">資助團隊</p>
+                    <span class="award-year">2023</span>
+                </div>
+
+                <div class="award-card fade-in">
+                    <div class="award-icon">🏅</div>
+                    <h3 class="award-title">CCNA 認證</h3>
+                    <p class="award-description">思科網路認證</p>
+                    <span class="award-year">2022</span>
+                </div>
+            </div>
+
+            <div class="highlight-box fade-in" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                <h3>持續學習與成長</h3>
+                <p>這些獎項與認證不僅是對我專業能力的肯定，更是激勵我持續在 AI 產品管理領域深耕的動力。我相信透過不斷學習與實踐，能夠為更多企業創造價值。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-slate-900">
+        <div class="container">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">聯絡方式</h2>
+                <p class="section-subtitle">歡迎對 AI 產品感興趣的科技／新創公司聯繫我</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="slide-in-left">
+                    <div>
+                        <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">聯絡資訊</h3>
+                        <div class="contact-info">
+                            <div class="contact-icon email">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:allen82218@gmail.com">allen82218@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-icon location">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>台灣桃園</p>
+                            </div>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-icon phone">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <a href="tel:+886938805235">+886-938-805-235</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">社群媒體</h3>
+                        <div class="social-links-contact">
+                            <a href="https://linkedin.com" target="_blank" class="social-link-contact">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com" target="_blank" class="social-link-contact">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-opportunities slide-in-right">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;">合作機會</h3>
+                    <ul class="opportunity-list">
+                        <li>AI 產品策略規劃與執行</li>
+                        <li>技術團隊與業務團隊的橋梁角色</li>
+                        <li>產品從 0 到 1 的開發與商業化</li>
+                        <li>醫療 AI 與消費品產品管理經驗</li>
+                    </ul>
+                    
+                    <a href="mailto:allen82218@gmail.com" class="btn btn-primary" style="width: 100%;">立即聯絡</a>
+                </div>
+            </div>
+
+            <div class="highlight-box fade-in">
+                <h3>期待與您合作</h3>
+                <p>如果您正在尋找能夠結合技術深度與商業洞察的 AI 產品經理，我期待與您討論如何為您的團隊和產品帶來價值。讓我們一起打造下一個成功的 AI 產品！</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html> 
