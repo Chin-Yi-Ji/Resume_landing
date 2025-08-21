@@ -20,7 +20,7 @@ const Awards = () => {
       icon: <FaMedal className="text-green-500" size={40} />,
       title: "CCNA 認證",
       description: "思科網路認證",
-      year: "2022"
+      year: "2024"
     }
   ];
 
